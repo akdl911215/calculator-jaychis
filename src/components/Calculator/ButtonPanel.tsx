@@ -1,0 +1,64 @@
+// src/components/Calculator/ButtonPanel.tsx
+import { Divide, X, Minus, Plus } from "lucide-react"
+import Button from "./Button"
+
+type Props = {
+  inputDigit(d: string): void
+  inputDecimal(): void
+  clearAll(): void
+  clearDisplay(): void
+  handleOperator(op: string): void
+  calculateResult(): void
+}
+
+export default function ButtonPanel({
+  inputDigit,
+  inputDecimal,
+  clearAll,
+  clearDisplay,
+  handleOperator,
+  calculateResult,
+}: Props) {
+  return (
+    <div className="grid grid-cols-4 gap-3">
+      <Button variant="primary"  onClick={clearAll}         className="col-span-2">AC</Button>
+      <Button variant="primary"  onClick={clearDisplay}                       >C</Button>
+      <Button variant="operator" onClick={() => handleOperator("/")}>
+        <Divide className="h-5 w-5" />
+      </Button>
+
+      {[7, 8, 9].map(n => (
+        <Button key={n} variant="digit" onClick={() => inputDigit(n.toString())}>
+          {n}
+        </Button>
+      ))}
+      <Button variant="operator" onClick={() => handleOperator("*")}>
+        <X className="h-5 w-5" />
+      </Button>
+
+      {[4, 5, 6].map(n => (
+        <Button key={n} variant="digit" onClick={() => inputDigit(n.toString())}>
+          {n}
+        </Button>
+      ))}
+      <Button variant="operator" onClick={() => handleOperator("-")}>
+        <Minus className="h-5 w-5" />
+      </Button>
+
+      {[1, 2, 3].map(n => (
+        <Button key={n} variant="digit" onClick={() => inputDigit(n.toString())}>
+          {n}
+        </Button>
+      ))}
+      <Button variant="operator" onClick={() => handleOperator("+")}>
+        <Plus className="h-5 w-5" />
+      </Button>
+
+      <Button variant="digit" onClick={() => inputDigit("0")} className="col-span-2">
+        0
+      </Button>
+      <Button variant="digit" onClick={inputDecimal}>.</Button>
+      <Button variant="equal" onClick={calculateResult}>=</Button>
+    </div>
+  )
+}

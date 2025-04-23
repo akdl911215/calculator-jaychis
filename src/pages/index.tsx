@@ -1,11 +1,17 @@
-import Login from "./Login";
+// src/pages/index.tsx
+import Head from "next/head"
+import Calculator from "@/components/Calculator/Calculator"
 
-const index = () => {
+export default function Home() {
   return (
-    <div className="content">
-      <Login/>
-    </div>
-  );
-};
-
-export default index;
+    <>
+      <Head>
+        <title>Vintage Calculator</title>
+        <meta name="description" content="Retro-styled calculator" />
+      </Head>
+      <main className="flex justify-center items-center min-h-screen bg-gradient-to-b from-amber-50 to-amber-100 p-6">
+        <Calculator />
+      </main>
+    </>
+  )
+}
