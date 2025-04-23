@@ -5,4 +5,5 @@ node_modules/
 .next/
 
 # Optional: static export output
-out/
+out/node_modules/
+.next/
