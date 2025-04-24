@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  이 파일은 사이트맵(Sitemap)으로, 검색 엔진에게 사이트 구조와 업데이트 정보를 제공하여
+  색인(crawl) 효율을 높입니다.
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!--
+    <url> 요소 하나가 페이지 하나를 나타냅니다.
+  -->
+  <url>
+    <!--
+      <loc> (Location): 페이지의 절대 URL.
+    -->
+    <loc>https://calculator.jaychis.com/</loc>
+    <!--
+      <lastmod> (Last Modified): 해당 페이지가 마지막으로 수정된 날짜(YYYY-MM-DD).
+      색인 빈도를 최적화하는데 활용됩니다.
+    -->
+    <lastmod>2025-04-24</lastmod>
+    <!--
+      <changefreq> (Change Frequency): 페이지가 얼마나 자주 변경되는지에 대한 힌트.
+      예: always, hourly, daily, weekly, monthly, yearly, never
+    -->
+    <changefreq>daily</changefreq>
+    <!--
+      <priority> (Priority): 사이트 내에서 해당 페이지의 상대적 중요도 (0.0~1.0).
+      기본값 0.5, 홈 페이지는 보통 1.0.
+    -->
+    <priority>1.0</priority>
+  </url>
+</urlset>
