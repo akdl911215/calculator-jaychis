@@ -22,9 +22,7 @@
     "incremental": true,
     "baseUrl": "src",             
     "paths": {
-      "@/components/*": ["components/*"],
-      "@/hooks/*":      ["hooks/*"],
-      "@/utils/*":      ["utils/*"]
+       "@/*": ["*"]
     },
   },
   "include": [

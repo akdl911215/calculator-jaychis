@@ -1,4 +1,3 @@
-// src/hooks/useCalculator.ts
 import { useState } from "react"
 
 export function useCalculator() {

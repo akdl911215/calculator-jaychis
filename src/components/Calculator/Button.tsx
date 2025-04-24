@@ -1,4 +1,3 @@
-// src/components/Calculator/Button.tsx
 import React from "react"
 
 type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
