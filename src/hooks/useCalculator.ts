@@ -5,6 +5,7 @@ export function useCalculator() {
   const [storedValue, setStoredValue] = useState<number | null>(null)
   const [operator, setOperator] = useState<string | null>(null)
   const [waitingForOperand, setWaitingForOperand] = useState(false)
+  const [history, setHistory] = useState<number[]>([])
 
   const performCalculation = (a: number, b: number, op: string) => {
     switch (op) {
@@ -67,8 +68,36 @@ export function useCalculator() {
       setStoredValue(null)
       setOperator(null)
       setWaitingForOperand(true)
+      setHistory(prev => [...prev, result])
     }
   }
+
+  const handleGT = () => {
+    const total = history.reduce((sum, x) => sum + x, 0)
+    setDisplay(String(total))
+    setWaitingForOperand(true)
+  }
+
+
+  // useCalculator.ts 에
+  const handlePercent = () => {
+    const current = parseFloat(display)
+    if (operator && storedValue !== null) {
+      // 연산 퍼센트 모드
+      const result = performCalculation(
+        storedValue,
+        storedValue * (current / 100),
+        operator
+      )
+      setDisplay(String(result))
+      setStoredValue(result)
+    } else {
+      // 단순 퍼센트 모드
+      setDisplay(String(current / 100))
+    }
+    setWaitingForOperand(true)
+  }
+
 
   return {
     display,
@@ -78,5 +107,7 @@ export function useCalculator() {
     clearDisplay,
     handleOperator,
     calculateResult,
+    handlePercent,
+    handleGT
   }
 }

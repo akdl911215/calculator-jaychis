@@ -9,6 +9,8 @@ type Props = {
   clearDisplay(): void
   handleOperator(op: string): void
   calculateResult(): void
+  handlePercent(): void
+  handleGT(): void
 }
 
 export default function ButtonPanel({
@@ -18,16 +20,29 @@ export default function ButtonPanel({
   clearDisplay,
   handleOperator,
   calculateResult,
+  handlePercent,
+  handleGT,
 }: Props) {
   return (
     <div className="grid grid-cols-4 gap-3">
-      <Button variant="primary"  onClick={clearAll}         className="col-span-2">AC</Button>
-      <Button variant="primary"  onClick={clearDisplay}                       >C</Button>
+      {/* ─── Grand Total full-width ─── */}
+      <Button 
+        variant="primary" 
+        className="col-span-4 mt-1" 
+        onClick={handleGT}
+      >
+        GT
+      </Button>
+      {/* ─── Top row: AC, C, %, ÷ ─── */}
+      <Button variant="primary" onClick={clearAll}>AC</Button>
+      <Button variant="primary" onClick={clearDisplay}>C</Button>
+      <Button variant="operator" onClick={handlePercent}>%</Button>
       <Button variant="operator" onClick={() => handleOperator("/")}>
         <Divide className="h-5 w-5" />
       </Button>
 
-      {[7, 8, 9].map(n => (
+      {/* ─── Digit rows ─── */}
+      {[7,8,9].map(n => (
         <Button key={n} variant="digit" onClick={() => inputDigit(n.toString())}>
           {n}
         </Button>
@@ -36,7 +51,7 @@ export default function ButtonPanel({
         <X className="h-5 w-5" />
       </Button>
 
-      {[4, 5, 6].map(n => (
+      {[4,5,6].map(n => (
         <Button key={n} variant="digit" onClick={() => inputDigit(n.toString())}>
           {n}
         </Button>
@@ -45,7 +60,7 @@ export default function ButtonPanel({
         <Minus className="h-5 w-5" />
       </Button>
 
-      {[1, 2, 3].map(n => (
+      {[1,2,3].map(n => (
         <Button key={n} variant="digit" onClick={() => inputDigit(n.toString())}>
           {n}
         </Button>
@@ -54,11 +69,14 @@ export default function ButtonPanel({
         <Plus className="h-5 w-5" />
       </Button>
 
-      <Button variant="digit" onClick={() => inputDigit("0")} className="col-span-2">
+      {/* ─── Bottom digit row: 0, ., = ─── */}
+      <Button variant="digit" className="col-span-2" onClick={() => inputDigit("0")}>
         0
       </Button>
       <Button variant="digit" onClick={inputDecimal}>.</Button>
       <Button variant="equal" onClick={calculateResult}>=</Button>
+
+      
     </div>
   )
 }
