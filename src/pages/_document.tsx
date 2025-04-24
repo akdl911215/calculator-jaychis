@@ -7,6 +7,9 @@ export default class MyDocument extends Document {
     return (
       <Html lang="ko">
         <Head>
+          <link rel="icon" href="/favicon.ico" />
+          <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
+
           {/* ───── 기본 메타 (기본 문자 인코딩, 설명, 정식 URL 지정) ───── */}
           <meta charSet="UTF-8" />
           {/* 페이지 설명: 검색 결과 요약에 사용 */}
