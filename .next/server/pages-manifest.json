@@ -1,7 +1,9 @@
 {
   "/_app": "pages/_app.js",
-  "/": "pages/index.html",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/404": "pages/404.html"
+  "/vintage-calculator": "pages/vintage-calculator.js",
+  "/online-calculator": "pages/online-calculator.js",
+  "/percent-calculator": "pages/percent-calculator.js",
+  "/": "pages/index.js"
 }

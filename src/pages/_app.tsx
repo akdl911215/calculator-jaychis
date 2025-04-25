@@ -1,12 +1,12 @@
-import type { AppProps } from 'next/app'
-import '@/styles/index.css'
-import Nav from '@/components/Nav'
+// src/pages/_app.tsx
+import type { AppProps } from "next/app"
+import Layout from "@/components/Layout"
+import "@/styles/index.css"
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <>
-      <Nav />
+    <Layout>
       <Component {...pageProps} />
-    </>
+    </Layout>
   )
 }
