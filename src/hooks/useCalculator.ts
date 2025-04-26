@@ -50,14 +50,19 @@ export function useCalculator() {
   const handleOperator = (nextOp: string) => {
     const value = parseFloat(display)
     if (storedValue === null) {
-      setStoredValue(value)
+      etStoredValue(value)
+    setStoredValue(value)
     } else if (operator) {
       const result = performCalculation(storedValue, value, operator)
       setDisplay(String(result))
       setStoredValue(result)
+      setHistory(prev => [...prev, result]) // ★ 연산이 끝난 값을 history에 저장
     }
     setWaitingForOperand(true)
     setOperator(nextOp)
+  }
+  const clearGT = () => {
+    setHistory([])
   }
 
   const calculateResult = () => {
@@ -108,6 +113,7 @@ export function useCalculator() {
     handleOperator,
     calculateResult,
     handlePercent,
-    handleGT
+    handleGT,
+    clearGT
   }
 }

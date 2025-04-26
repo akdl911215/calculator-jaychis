@@ -15,7 +15,8 @@ export default function Calculator() {
     handleOperator,
     calculateResult,
     handlePercent,
-    handleGT,         
+    handleGT,     
+    ,    
   } = useCalculator()
 
   return (
