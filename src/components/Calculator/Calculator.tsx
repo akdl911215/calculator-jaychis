@@ -1,4 +1,3 @@
-// src/components/Calculator/Calculator.tsx
 "use client"
 
 import Display     from "./Display"
@@ -16,7 +15,7 @@ export default function Calculator() {
     calculateResult,
     handlePercent,
     handleGT,     
-    ,    
+    clearGT
   } = useCalculator()
 
   return (
@@ -38,6 +37,7 @@ export default function Calculator() {
           calculateResult={calculateResult}
           handlePercent={handlePercent}
           handleGT={handleGT}
+          clearGT={clearGT}
         />
       </div>
 
